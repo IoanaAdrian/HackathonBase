@@ -1,0 +1,25 @@
+<div style="width:100%" fxLayoutAlign="center center" class="">
+    <form style="padding:30px" class="example-form mat-app-background mat-elevation-z8" fxLayout="column" fxLayoutAlign="space-around center">
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>LeftLedValue</mat-label>
+        <input matInput placeholder="Ex. 0" [(ngModel)]="left_value" name="v1">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>RightLedValue</mat-label>
+        <input matInput placeholder="Ex. 0" [(ngModel)]="right_value" name="v2">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Key</mat-label>
+        <input matInput placeholder="Ex. test" [(ngModel)]="key" name="v3">
+        </mat-form-field>
+    
+
+        
+    
+       
+
+        <button (click)="addCommand()" mat-button color="accent">Submit</button>
+    </form>
+</div>

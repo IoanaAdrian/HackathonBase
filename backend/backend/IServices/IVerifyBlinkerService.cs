@@ -11,6 +11,6 @@ namespace backend.IServices
     public interface IVerifyBlinkerService
     {
         Task<bool> AddCommand(BlinkerCommandModel model);
-        Commands GetAllCommands();
+        List<Commands> GetAllCommands();
     }
 }

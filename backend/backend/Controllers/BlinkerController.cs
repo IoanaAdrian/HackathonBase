@@ -29,7 +29,7 @@ namespace backend.Controllers
         }
 
         [HttpGet]
-        public Commands getAll()
+        public List<Commands> getAll()
         {
             return _verifyBlinkerService.GetAllCommands();
         }

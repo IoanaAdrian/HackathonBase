@@ -17,6 +17,7 @@ using backend.IServices;
 using backend.Mappers;
 using backend.Services;
 using Microsoft.EntityFrameworkCore;
+using backend.Hubs;
 
 namespace backend
 {
@@ -32,12 +33,19 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCors(o => o.AddPolicy("MyPolicy", builder =>
+            {
+                builder.AllowAnyOrigin()
+                       .AllowAnyMethod()
+                       .AllowAnyHeader();
+            }));
+
             services.AddDbContext<LedblinkerContext>(
                 options => options.UseSqlServer("Server=localhost;Database=LedBlinker;Trusted_Connection=True;"));
 
             services.AddHttpClient();
-        
-        IMapper mapper = new MapperConfiguration(a => { a.AddProfile(new MyMapper()); }).CreateMapper();
+
+            IMapper mapper = new MapperConfiguration(a => { a.AddProfile(new MyMapper()); }).CreateMapper();
             services.AddSingleton(mapper);
             services.AddScoped<IVerifyBlinkerService, VerifyBlinkerService>();
             services.AddControllers();
@@ -45,11 +53,15 @@ namespace backend
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
             });
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+
+            app.UseCors("MyPolicy");
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -64,6 +76,7 @@ namespace backend
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHub<CommandsHub>("/commandshub");
             });
         }
     }

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ioana\\Desktop\\Hackathon\\backend\\backend\\backend.csproj": {}
+    "E:\\ADI\\HackathonBase\\backend\\backend\\backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ioana\\Desktop\\Hackathon\\backend\\backend\\backend.csproj": {
+    "E:\\ADI\\HackathonBase\\backend\\backend\\backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ioana\\Desktop\\Hackathon\\backend\\backend\\backend.csproj",
+        "projectUniqueName": "E:\\ADI\\HackathonBase\\backend\\backend\\backend.csproj",
         "projectName": "backend",
-        "projectPath": "C:\\Users\\ioana\\Desktop\\Hackathon\\backend\\backend\\backend.csproj",
-        "packagesPath": "C:\\Users\\ioana\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ioana\\Desktop\\Hackathon\\backend\\backend\\obj\\",
+        "projectPath": "E:\\ADI\\HackathonBase\\backend\\backend\\backend.csproj",
+        "packagesPath": "C:\\Users\\Adrian\\.nuget\\packages\\",
+        "outputPath": "E:\\ADI\\HackathonBase\\backend\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ioana\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Adrian\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -47,6 +47,18 @@
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
               "version": "[8.1.1, )"
+            },
+            "Microsoft.AspNet.SignalR.Core": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.1.0, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Core": {
+              "target": "Package",
+              "version": "[1.1.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
@@ -85,7 +97,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

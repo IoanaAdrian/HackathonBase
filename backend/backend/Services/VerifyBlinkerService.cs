@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -23,10 +24,7 @@ namespace backend.Services
             _client = client;
         }
 
-        public Commands GetAllCommands()
-        {
-            return _dbContext.Set<Commands>().OrderBy(a=>a.id).Last();
-        }
+        
         public async Task<bool> AddCommand(BlinkerCommandModel model)
         {
             if (model.key == "pula")
@@ -35,13 +33,18 @@ namespace backend.Services
                 _dbContext.Add(_mapper.Map<Commands>(model));
                 _dbContext.SaveChanges();
 
-                var responseString = await _client.GetStringAsync("http://localhost:29949/api/blinker");
-                Console.WriteLine(responseString);
+                /*var responseString = await _client.GetStringAsync("http://localhost:29949/api/blinker");
+                Console.WriteLine(responseString);*/
 
                 return true;
             }
 
             return false;
+        }
+
+        public List<Commands> GetAllCommands()
+        {
+             return _dbContext.Set<Commands>().OrderBy(a => a.id).ToList();
         }
     }
 }
